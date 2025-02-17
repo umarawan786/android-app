@@ -1,0 +1,91 @@
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Keyboard,
+  Pressable,
+} from "react-native";
+import React from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import GradientScreenWrapper from "../../components/GradientScreenWrapper";
+import { wp, scaleFontSize } from "../../helpers/common";
+import LogInForm from "../../components/forms/LoginForm";
+import { Link } from "expo-router";
+
+const LogIn = () => {
+  const { top, bottom } = useSafeAreaInsets();
+
+  return (
+    <GradientScreenWrapper>
+      <ScrollView
+        style={{ paddingTop: top, paddingBottom: bottom }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View
+          style={[styles.container, { paddingTop: top, paddingBottom: bottom }]}
+          onStartShouldSetResponder={() => true}
+          onResponderRelease={Keyboard.dismiss}
+        >
+          {/* Title */}
+          <View style={styles.titleContainer}>
+            <Text style={styles.title}>Log in</Text>
+            <View style={styles.subtitleContainer}>
+              <Text style={styles.subtitle}>No account yet? </Text>
+              <Link asChild href={"/signup"}>
+                <Pressable style={styles.linkContainer}>
+                  <Text style={[styles.subtitle, styles.loginLink]}>
+                    Sign up here
+                  </Text>
+                </Pressable>
+              </Link>
+            </View>
+          </View>
+
+          {/* Log In Form */}
+          <LogInForm />
+        </View>
+      </ScrollView>
+    </GradientScreenWrapper>
+  );
+};
+
+export default LogIn;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titleContainer: {
+    marginBottom: 10,
+  },
+  title: {
+    maxWidth: wp(50),
+    fontSize: scaleFontSize(32),
+    color: "white",
+    fontFamily: "Poppins-Bold",
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: scaleFontSize(12),
+    fontFamily: "Poppins-Regular",
+    color: "white",
+    textAlign: "center",
+  },
+  subtitleContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  linkContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loginLink: {
+    color: "white",
+    fontFamily: "Poppins-Bold",
+    textDecorationLine: "underline",
+  },
+});
