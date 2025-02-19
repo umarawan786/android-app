@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1003573095199",
+    "project_id": "liaura",
+    "storage_bucket": "liaura.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003573095199:android:76a331978ad92ecd171e2a",
+        "android_client_info": {
+          "package_name": "com.liaura.liaura"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfDa1m5haxMF_ogexo2y1jNwd1lyZZAMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
